@@ -37,8 +37,6 @@ const ItemList = () => {
     }
   }
 
-  console.log(searchFilter);
-
   if (productsReducer.products.length > 0) {
     if (searchReducer.searchState) {
       return searchFilter.map((product, key) => {

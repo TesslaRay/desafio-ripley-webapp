@@ -33,10 +33,26 @@ const CounterCell = ({ product }) => {
       <img className={classes.image} src={product.image} />
       <div className={classes.brand}>{product.brand.toUpperCase()} </div>
       <div className={classes.title}>{product.name}</div>
-      <div className={classes.price}>$ {product.price}</div>
-      <div className={classes.discount}>$ {product.price * 0.8}</div>
+      {isPalindrome(product.brand) ||
+      isPalindrome(product.id.toString()) ||
+      isPalindrome(product.description) ? (
+        <React.Fragment>
+          <div className={classes.price}>$ {product.price}</div>
+          <div className={classes.discount}>$ {product.price * 0.8}</div>
+        </React.Fragment>
+      ) : (
+        <div className={classes.discount}>$ {product.price}</div>
+      )}
     </Box>
   );
 };
 
 export default CounterCell;
+
+function isPalindrome(s, i) {
+  return (
+    (i = i || 0) < 0 ||
+    i >= s.length >> 1 ||
+    (s[i] == s[s.length - 1 - i] && isPalindrome(s, ++i))
+  );
+}

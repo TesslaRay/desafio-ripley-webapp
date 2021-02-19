@@ -20,8 +20,9 @@ run r:
 	@REACT_APP_URL="$(REACT_APP_URL)" npm start
 
 deploy d:
+	@npm run build
 	@echo "[frontend-test-master] Deploy on GCP... \n"
-	@npm run deploy
+	@gcloud app deploy app-prod.yaml
 
 test t:
 	@echo "[frontend-test-master] Testing frontend... \n"

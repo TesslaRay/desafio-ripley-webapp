@@ -1,5 +1,8 @@
 runtime: nodejs10
-service: test-cornershop
+service: app-desafio-ripley
+
+env_variables:
+  REACT_APP_API_URL: "https://api-desafio-ripley-dot-cristian-valdivia.ue.r.appspot.com"
 
 handlers:
   - url: /
