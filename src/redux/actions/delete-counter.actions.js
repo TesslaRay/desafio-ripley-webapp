@@ -30,7 +30,6 @@ export const deleteCounterError = (error) => {
 export const deleteCounter = (id) => {
   return (dispatch) => {
     dispatch(deleteCounterRequest());
-    console.log(id);
     return axios
       .delete(`${url}/product/${id}`)
       .then((response) => {

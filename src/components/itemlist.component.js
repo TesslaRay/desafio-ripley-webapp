@@ -18,10 +18,6 @@ const ItemList = () => {
   const productsReducer = useSelector((state) => state.productsReducer);
   const searchReducer = useSelector((state) => state.searchReducer);
 
-  // let searchFilter = productsReducer.products[0].filter((count) =>
-  //   count.title.includes(searchReducer.searchCounter),
-  // );
-
   if (productsReducer.products.length > 0) {
     return productsReducer.products[0].map((product, key) => {
       return <CounterCell product={product} key={key} />;

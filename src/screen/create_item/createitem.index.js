@@ -25,14 +25,42 @@ const CreateItem = () => {
   const dispatch = useDispatch();
   const productsReducer = useSelector((state) => state.productsReducer);
 
-  const [counter, setCounter] = useState();
+  const [brand, setBrand] = useState();
+  const [image, setImage] = useState();
+  const [name, setName] = useState();
+  const [description, setDescription] = useState();
+  const [price, setPrice] = useState();
 
-  const onChange = (event) => {
-    setCounter(event.target.value);
+  let product = {
+    brand: brand,
+    image: image,
+    name: name,
+    description: description,
+    price: price,
   };
 
-  const saveItem = (counter) => {
-    dispatch(addCounter(counter));
+  const onChangeBrand = (event) => {
+    setBrand(event.target.value);
+  };
+
+  const onChangeImage = (event) => {
+    setImage(event.target.value);
+  };
+
+  const onChangeName = (event) => {
+    setName(event.target.value);
+  };
+
+  const onChangeDescription = (event) => {
+    setDescription(event.target.value);
+  };
+
+  const onChangePrice = (event) => {
+    setPrice(event.target.value);
+  };
+
+  const saveItem = (product) => {
+    dispatch(addCounter(product));
   };
 
   return (
@@ -50,50 +78,104 @@ const CreateItem = () => {
             <AddCircleIcon />
           </IconButton>
           <Typography variant="h5" className={classes.title}>
-            Create Counter
+            Agregar producto
           </Typography>
           <Button
             variant="contained"
             color="primary"
             className={classes.saveButton}
-            onClick={() => saveItem(counter)}
+            onClick={() => saveItem(product)}
             component={Link}
             to="/main"
           >
-            Save
+            Agregar
           </Button>
         </div>
         <Divider className={classes.separator} />
         <div className={classes.body}>
-          <Typography variant="h6">Name</Typography>
+          <Typography variant="h6">Marca</Typography>
           <div className={classes.search}>
             <InputBase
               fullWidth={true}
-              placeholder="Cups of coffee"
+              placeholder="HP"
               classes={{
                 input: classes.inputInput,
               }}
               inputProps={{ "aria-label": "search" }}
-              onChange={onChange}
+              onChange={onChangeBrand}
             />
           </div>
+
+          <Typography variant="h6">Imagen</Typography>
+          <div className={classes.search}>
+            <InputBase
+              fullWidth={true}
+              placeholder="URL"
+              classes={{
+                input: classes.inputInput,
+              }}
+              inputProps={{ "aria-label": "search" }}
+              onChange={onChangeImage}
+            />
+          </div>
+
+          <Typography variant="h6">Nombre</Typography>
+          <div className={classes.search}>
+            <InputBase
+              fullWidth={true}
+              placeholder="Bicicleta"
+              classes={{
+                input: classes.inputInput,
+              }}
+              inputProps={{ "aria-label": "search" }}
+              onChange={onChangeName}
+            />
+          </div>
+
+          <Typography variant="h6">Descripción</Typography>
+          <div className={classes.search}>
+            <InputBase
+              fullWidth={true}
+              placeholder="........."
+              classes={{
+                input: classes.inputInput,
+              }}
+              inputProps={{ "aria-label": "search" }}
+              onChange={onChangeDescription}
+            />
+          </div>
+
+          <Typography variant="h6">Precio</Typography>
+          <div className={classes.search}>
+            <InputBase
+              fullWidth={true}
+              placeholder="29900"
+              classes={{
+                input: classes.inputInput,
+              }}
+              inputProps={{ "aria-label": "search" }}
+              onChange={onChangePrice}
+            />
+          </div>
+
           <Typography className={classes.subtitle}>
-            Give it a name. Creative block? See&nbsp;
+            Vee los &nbsp;
             <Link to="/example">
-              <u>examples.</u>
+              <u>ejemplos.</u>
             </Link>
           </Typography>
         </div>
+
         {/* Loading */}
-        {productsReducer.loadingAddCounter === true ? (
+        {/* {productsReducer.loadingAddCounter === true ? (
           <div className={classes.loader}>
             <ActivityIndicator />
           </div>
         ) : (
           <p></p>
-        )}
+        )} */}
         {/* Error */}
-        {productsReducer.errorAddCounter !== "" && <AddError />}
+        {/* {productsReducer.errorAddCounter !== "" && <AddError />} */}
       </Container>
     </div>
   );

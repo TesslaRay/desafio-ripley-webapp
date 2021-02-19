@@ -12,16 +12,6 @@ const CounterCell = ({ product }) => {
   const dispatch = useDispatch();
   const uiReducer = useSelector((state) => state.uiReducer);
 
-  // function handleDecrement() {
-  //   dispatch(decrementValue(item));
-  // }
-
-  // function handleIncrement() {
-  //   dispatch(incrementValue(item));
-  // }
-
-  // let item = {};
-
   let isSelected = false;
   if (uiReducer.itemSelected.length) {
     isSelected = uiReducer.itemSelected[0].name === product.name ? true : false;
