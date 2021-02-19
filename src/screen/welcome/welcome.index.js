@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import SvgIcon from "@material-ui/core/SvgIcon";
-import { ReactComponent as Logo } from "../../images/logo-test.svg";
-
 import { Box, Button, Typography } from "@material-ui/core";
 import ListIcon from "@material-ui/icons/List";
 

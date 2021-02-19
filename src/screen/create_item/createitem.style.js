@@ -2,10 +2,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { primary } from "../../utils/colors";
 
 const useStyles = makeStyles((theme) => ({
-  dimmer: {
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
-    height: "100vh",
-  },
   root: {
     backgroundColor: "white",
     [theme.breakpoints.down("xs")]: {

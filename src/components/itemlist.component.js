@@ -50,27 +50,6 @@ const ItemList = () => {
   } else {
     return <Typography className={classes.noresults}>No results</Typography>;
   }
-
-  // if (searchReducer.searchState && searchReducer.searchCounter.length > 0) {
-  //   if (searchReducer.searchState && searchFilter.length > 0) {
-  //     return searchFilter.map((item, key) => {
-  //       return <CounterCell item={item} key={key} />;
-  //     });
-  //   } else {
-  //     return <Typography className={classes.noresults}>No results</Typography>;
-  //   }
-  // } else {
-  //   return productsReducer.products[0].map((item, key) => {
-  //     return <CounterCell item={item} key={key} />;
-  //   });
-  // }
-  // return (
-  //   <React.Fragment>
-  //     <CounterCell />
-  //     <CounterCell />
-  //     <CounterCell />
-  //   </React.Fragment>
-  // );
 };
 
 export default ItemList;

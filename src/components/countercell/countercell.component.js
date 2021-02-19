@@ -1,7 +1,5 @@
 import React from "react";
 
-import Container from "@material-ui/core/Container";
-
 import { useDispatch, useSelector } from "react-redux";
 
 import useStyles from "./style";
