@@ -4,13 +4,19 @@ import { primary } from "../../utils/colors";
 const useStyles = makeStyles((theme) => ({
   box: {
     height: "350px",
-    width: "80%",
+    width: "400px",
+    [theme.breakpoints.down("xs")]: {
+      width: "80%",
+    },
     padding: "20px",
     margin: "30px",
   },
   selected: {
     height: "350px",
-    width: "80%",
+    [theme.breakpoints.down("xs")]: {
+      width: "80%",
+    },
+    width: "400px",
     padding: "20px",
     margin: "30px",
     borderRadius: "26px",

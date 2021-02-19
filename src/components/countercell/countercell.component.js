@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import useStyles from "./style";
 import { selectItem } from "../../redux/actions/select-item.actions";
+import { Box } from "@material-ui/core";
 
 const CounterCell = ({ product }) => {
   const classes = useStyles();
@@ -18,7 +19,8 @@ const CounterCell = ({ product }) => {
   }
 
   return (
-    <Container
+    <Box
+      p={1}
       className={isSelected ? classes.selected : classes.box}
       onClick={() => {
         dispatch(selectItem(product));
@@ -29,7 +31,7 @@ const CounterCell = ({ product }) => {
       <div className={classes.title}>{product.name}</div>
       <div className={classes.price}>$ {product.price}</div>
       <div className={classes.discount}>$ {product.price * 0.8}</div>
-    </Container>
+    </Box>
   );
 };
 

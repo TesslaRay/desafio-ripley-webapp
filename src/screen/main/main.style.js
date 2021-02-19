@@ -40,9 +40,17 @@ const useStyles = makeStyles((theme) => ({
       width: "90%",
     },
     width: "570px",
+    margin: "auto",
   },
   body: {
-    // height: '92vh',
+    display: "flex",
+    flexDirection: "row",
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
+    },
+  },
+  wrap: {
+    margin: "auto",
   },
 }));
 

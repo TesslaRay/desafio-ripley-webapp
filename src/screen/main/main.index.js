@@ -46,7 +46,20 @@ const Main = () => {
         {productsReducer.loading && <ActivityIndicator />}
 
         {/* Has content */}
-        {!productsReducer.loading && <ItemList />}
+        {!productsReducer.loading && (
+          <React.Fragment>
+            <Box
+              className={classes.wrap}
+              display="flex"
+              flexWrap="wrap"
+              p={1}
+              m={2}
+              css={{ maxWidth: 1000 }}
+            >
+              <ItemList />
+            </Box>
+          </React.Fragment>
+        )}
 
         {/* {hasContent && (
           <div>
