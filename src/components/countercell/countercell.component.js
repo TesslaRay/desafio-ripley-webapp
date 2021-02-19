@@ -18,7 +18,7 @@ const CounterCell = ({ product }) => {
 
   let isSelected = false;
   if (uiReducer.itemSelected.length) {
-    isSelected = uiReducer.itemSelected[0].name === product.name ? true : false;
+    isSelected = uiReducer.itemSelected[0].id === product.id ? true : false;
   }
 
   return (

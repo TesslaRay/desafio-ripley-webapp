@@ -8,6 +8,7 @@ import {
   searchCounter,
 } from "../redux/actions/search-counter.actions";
 import { primary } from "../utils/colors";
+import { Dialog } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   search: {

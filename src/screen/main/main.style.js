@@ -4,10 +4,9 @@ import { FOTTER } from "../../utils/colors";
 const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: "center",
-    // [theme.breakpoints.down("xs")]: {
-    //   width: "100%",
-    // },
-    // width: "570px",
+    [theme.breakpoints.down("xs")]: {
+      height: "800px",
+    },
     margin: "auto",
   },
   title: {

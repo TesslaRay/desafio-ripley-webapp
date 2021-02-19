@@ -20,6 +20,7 @@ import { Box } from "@material-ui/core";
 
 import useStyles from "./main.style";
 import ItemList from "../../components/itemlist.component";
+import Header from "../../components/header.component";
 
 const Main = () => {
   const classes = useStyles();
@@ -104,8 +105,8 @@ const Main = () => {
     <div
       className={classes.root}
       onClick={() => {
-        if (uiReducer.itemSelected.length > 0) {
-          dispatch(unselectItem());
+        if (searchReducer.searchState) {
+          dispatch(desactivateSearch());
         }
       }}
     >
@@ -113,7 +114,17 @@ const Main = () => {
         <SearchBar />
       </div>
 
-      <Box className={classes.body}>{mainStateRender()}</Box>
+      <Box
+        className={classes.body}
+        onClick={() => {
+          if (uiReducer.itemSelected.length > 0) {
+            dispatch(unselectItem());
+          }
+          dispatch(desactivateSearch());
+        }}
+      >
+        {mainStateRender()}
+      </Box>
 
       <div className={classes.bottom}>
         <Divider className={classes.divider} />
