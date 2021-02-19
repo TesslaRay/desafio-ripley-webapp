@@ -101,7 +101,14 @@ const Main = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <div
+      className={classes.root}
+      onClick={() => {
+        if (uiReducer.itemSelected.length > 0) {
+          dispatch(unselectItem());
+        }
+      }}
+    >
       <div className={classes.searchBarContainer}>
         <SearchBar />
       </div>

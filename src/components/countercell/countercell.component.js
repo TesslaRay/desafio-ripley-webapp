@@ -5,7 +5,10 @@ import Container from "@material-ui/core/Container";
 import { useDispatch, useSelector } from "react-redux";
 
 import useStyles from "./style";
-import { selectItem } from "../../redux/actions/select-item.actions";
+import {
+  selectItem,
+  unselectItem,
+} from "../../redux/actions/select-item.actions";
 import { Box } from "@material-ui/core";
 
 const CounterCell = ({ product }) => {
@@ -24,6 +27,7 @@ const CounterCell = ({ product }) => {
       className={isSelected ? classes.selected : classes.box}
       onClick={() => {
         dispatch(selectItem(product));
+        if (isSelected) dispatch(unselectItem());
       }}
     >
       <img className={classes.image} src={product.image} />
