@@ -11,9 +11,6 @@ import { Container } from "@material-ui/core";
 
 import InputBase from "@material-ui/core/InputBase";
 
-import { ActivityIndicator } from "../../components/activityindicator.component";
-import { AddError } from "../../components/adderror.component";
-
 import { useDispatch, useSelector } from "react-redux";
 import { addCounter } from "../../redux/actions/add-counter.actions";
 
@@ -157,13 +154,6 @@ const CreateItem = () => {
               onChange={onChangePrice}
             />
           </div>
-
-          <Typography className={classes.subtitle}>
-            Vee los &nbsp;
-            <Link to="/example">
-              <u>ejemplos.</u>
-            </Link>
-          </Typography>
         </div>
 
         {/* Loading */}

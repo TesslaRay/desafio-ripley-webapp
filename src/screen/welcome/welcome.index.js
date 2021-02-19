@@ -5,6 +5,7 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import { ReactComponent as Logo } from "../../images/logo-test.svg";
 
 import { Box, Button, Typography } from "@material-ui/core";
+import ListIcon from "@material-ui/icons/List";
 
 import useStyles from "./welcome.style";
 
@@ -12,15 +13,12 @@ const Welcome = () => {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
-      <SvgIcon
-        component={Logo}
-        viewBox="0 0 206 209"
-        className={classes.logo}
-      />
-      <p className={classes.title}>Bienvenidos a la tienda mágica</p>
+      <ListIcon className={classes.logo} />
+      <p className={classes.title}>Mini Catálogo</p>
       <p className={classes.subtitle}>
-        Si el producto que deseas comprar es un palíndromo tienes un 20% de
-        descuento
+        En caso de que la búsqueda sea un palíndromo retorna el productos con el
+        descuento (20%) ya aplicado al precio, esta búsqueda aplica para
+        identificadores (Id de Producto), marcas y descripciones de productos
       </p>
       <Box mt={8} className={classes.bottom}>
         <Button
@@ -30,7 +28,9 @@ const Welcome = () => {
           component={Link}
           to="/main"
         >
-          <Typography className={classes.textButton}>Ir a la tienda</Typography>
+          <Typography className={classes.textButton}>
+            Ir a la catálogo
+          </Typography>
         </Button>
       </Box>
     </Box>

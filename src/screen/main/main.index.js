@@ -42,10 +42,18 @@ const Main = () => {
   const mainStateRender = () => {
     return (
       <React.Fragment>
-        <ItemList />
-
         {/* Loading */}
-        {/* {1 && <ActivityIndicator />} */}
+        {productsReducer.loading && <ActivityIndicator />}
+
+        {/* Has content */}
+        {!productsReducer.loading && <ItemList />}
+
+        {/* {hasContent && (
+          <div>
+            <Dimmer />
+            {productsReducer.errorDeleteCounter !== "" && <DeletetionError />}
+          </div>
+        )} */}
 
         {/* No content */}
         {/* {!hasContent && !productsReducer.loading && (
