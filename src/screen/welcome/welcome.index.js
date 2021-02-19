@@ -1,12 +1,12 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import SvgIcon from '@material-ui/core/SvgIcon';
-import {ReactComponent as Logo} from '../../images/logo-test.svg';
+import SvgIcon from "@material-ui/core/SvgIcon";
+import { ReactComponent as Logo } from "../../images/logo-test.svg";
 
-import {Box, Button, Typography} from '@material-ui/core';
+import { Box, Button, Typography } from "@material-ui/core";
 
-import useStyles from './welcome.style';
+import useStyles from "./welcome.style";
 
 const Welcome = () => {
   const classes = useStyles();
@@ -17,10 +17,10 @@ const Welcome = () => {
         viewBox="0 0 206 209"
         className={classes.logo}
       />
-      <p className={classes.title}>Welcome to Counters</p>
+      <p className={classes.title}>Bienvenidos a la tienda mágica</p>
       <p className={classes.subtitle}>
-        Capture cups of lattes, frapuccinos, or anything else that can be
-        counted.
+        Si el producto que deseas comprar es un palíndromo tienes un 20% de
+        descuento
       </p>
       <Box mt={8} className={classes.bottom}>
         <Button
@@ -30,7 +30,7 @@ const Welcome = () => {
           component={Link}
           to="/main"
         >
-          <Typography className={classes.textButton}>Get started</Typography>
+          <Typography className={classes.textButton}>Ir a la tienda</Typography>
         </Button>
       </Box>
     </Box>

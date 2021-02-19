@@ -1,24 +1,25 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from "react";
 
-import {Dimmer} from '../../components/dimmer.component';
+import { Dimmer } from "../../components/dimmer.component";
 
-import Divider from '@material-ui/core/Divider';
+import Divider from "@material-ui/core/Divider";
 
-import {useDispatch, useSelector} from 'react-redux';
-import {fetchCount} from '../../redux/actions/fetch-counts.actions';
-import {unselectItem} from '../../redux/actions/select-item.actions';
-import {desactivateSearch} from '../../redux/actions/search-counter.actions';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCount } from "../../redux/actions/fetch-counts.actions";
+import { unselectItem } from "../../redux/actions/select-item.actions";
+import { desactivateSearch } from "../../redux/actions/search-counter.actions";
 
-import AddButton from '../../components/addbutton.component';
-import DeleteButton from '../../components/deletebutton.component';
-import SearchBar from '../../components/searchbar.component';
-import ShareButton from '../../components/sharebutton.component';
-import DeletetionError from '../../components/deletetionerror.component';
-import {ActivityIndicator} from '../../components/activityindicator.component';
+import AddButton from "../../components/addbutton.component";
+import DeleteButton from "../../components/deletebutton.component";
+import SearchBar from "../../components/searchbar.component";
+import ShareButton from "../../components/sharebutton.component";
+import DeletetionError from "../../components/deletetionerror.component";
+import { ActivityIndicator } from "../../components/activityindicator.component";
 
-import {Box} from '@material-ui/core';
+import { Box } from "@material-ui/core";
 
-import useStyles from './main.style';
+import useStyles from "./main.style";
+import ItemList from "../../components/itemlist.component";
 
 const Main = () => {
   const classes = useStyles();
@@ -41,11 +42,13 @@ const Main = () => {
   const mainStateRender = () => {
     return (
       <React.Fragment>
+        <ItemList />
+
         {/* Loading */}
-        {countReducer.loading && <ActivityIndicator />}
+        {/* {1 && <ActivityIndicator />} */}
 
         {/* No content */}
-        {!hasContent && !countReducer.loading && (
+        {/* {!hasContent && !countReducer.loading && (
           <div>
             <p className={classes.title}>No counters yet</p>
             <p className={classes.subtitle}>
@@ -53,40 +56,38 @@ const Main = () => {
               around.” —Willie Nelson
             </p>
           </div>
-        )}
+        )} */}
 
         {/* Has content */}
-        {hasContent && (
+        {/* {hasContent && (
           <div>
             <Dimmer />
-            {countReducer.errorDeleteCounter !== '' && <DeletetionError />}
+            {countReducer.errorDeleteCounter !== "" && <DeletetionError />}
           </div>
-        )}
+        )} */}
 
         {/* Error  */}
-        {countReducer.error !== '' && (
+        {/* {countReducer.error !== "" && (
           <div>
             <p className={classes.title}>Couldn’t load the counters</p>
             <p className={classes.subtitle}>
               The Internet connection appears to be offline.
             </p>
           </div>
-        )}
+        )} */}
       </React.Fragment>
     );
   };
 
   return (
-    <React.Fragment>
-      <div
-        className={classes.root}
-        onClick={() => {
-          if (searchReducer.searchState) {
-            dispatch(desactivateSearch());
-          }
-        }}
-      >
-        <div
+    <div className={classes.root}>
+      <div className={classes.searchBarContainer}>
+        <SearchBar />
+      </div>
+
+      <Box className={classes.body}>{mainStateRender()}</Box>
+
+      {/* <div
           className={classes.searchBarContainer}
           onClick={() => {
             if (uiReducer.itemSelected.length > 0) {
@@ -95,9 +96,9 @@ const Main = () => {
           }}
         >
           <SearchBar />
-        </div>
+        </div> */}
 
-        <Box
+      {/* <Box
           className={hasContent ? classes.body : null}
           onClick={() => {
             if (uiReducer.itemSelected.length > 0) {
@@ -106,9 +107,9 @@ const Main = () => {
           }}
         >
           {mainStateRender()}
-        </Box>
+        </Box> */}
 
-        <div
+      {/* <div
           className={classes.bottom}
           onClick={() => {
             dispatch(desactivateSearch());
@@ -124,10 +125,8 @@ const Main = () => {
               </React.Fragment>
             )}
             <AddButton />
-          </div>
-        </div>
-      </div>
-    </React.Fragment>
+          </div> */}
+    </div>
   );
 };
 
