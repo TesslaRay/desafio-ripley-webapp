@@ -55,7 +55,7 @@ const Main = () => {
             </Box>
           </React.Fragment>
         )}
-        )} s1}
+        )
       </React.Fragment>
     );
   };

@@ -12,6 +12,7 @@ The application has been developed with:
 - **redux**: allows the management of states, as well as abstracts the business logic out of the component.
 - **react-router**: facilitates the implementation of sections in a webapp through custom URL routes.
 
+**Note**: the id of the element in DB are 860 and 696.
 
 Develop Commands
 ========
