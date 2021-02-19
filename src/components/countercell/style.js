@@ -8,6 +8,14 @@ const useStyles = makeStyles((theme) => ({
     padding: "20px",
     margin: "30px",
   },
+  selected: {
+    height: "350px",
+    width: "80%",
+    padding: "20px",
+    margin: "30px",
+    borderRadius: "26px",
+    backgroundColor: "rgba(248, 51, 69, 0.3)",
+  },
   image: {
     width: "350px",
     height: "auto",
@@ -16,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   brand: {
+    margin: "5px",
     textAlign: "left",
     fontFamily: theme.typography.fontFamily,
     fontWeight: "700",
@@ -23,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "12px",
   },
   title: {
+    margin: "5px",
     textAlign: "left",
     fontFamily: theme.typography.fontFamily,
     fontWeight: "400",
@@ -36,15 +46,19 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   price: {
+    margin: "5px",
     textAlign: "left",
     fontFamily: theme.typography.fontFamily,
+    fontSize: "14px",
     fontWeight: "600",
     color: "black",
     textDecoration: "line-through",
   },
   discount: {
+    margin: "5px",
     textAlign: "left",
     fontFamily: theme.typography.fontFamily,
+    fontSize: "20px",
     fontWeight: "600",
     color: primary,
   },

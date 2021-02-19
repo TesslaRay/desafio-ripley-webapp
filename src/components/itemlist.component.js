@@ -15,12 +15,20 @@ const useStyles = makeStyles((theme) => ({
 const ItemList = () => {
   const classes = useStyles();
 
-  const countReducer = useSelector((state) => state.countReducer);
+  const productsReducer = useSelector((state) => state.productsReducer);
   const searchReducer = useSelector((state) => state.searchReducer);
 
-  // let searchFilter = countReducer.counts[0].filter((count) =>
+  // let searchFilter = productsReducer.products[0].filter((count) =>
   //   count.title.includes(searchReducer.searchCounter),
   // );
+
+  if (productsReducer.products.length > 0) {
+    return productsReducer.products[0].map((product, key) => {
+      return <CounterCell product={product} key={key} />;
+    });
+  } else {
+    return <Typography className={classes.noresults}>No results</Typography>;
+  }
 
   // if (searchReducer.searchState && searchReducer.searchCounter.length > 0) {
   //   if (searchReducer.searchState && searchFilter.length > 0) {
@@ -31,17 +39,17 @@ const ItemList = () => {
   //     return <Typography className={classes.noresults}>No results</Typography>;
   //   }
   // } else {
-  //   return countReducer.counts[0].map((item, key) => {
+  //   return productsReducer.products[0].map((item, key) => {
   //     return <CounterCell item={item} key={key} />;
   //   });
   // }
-  return (
-    <React.Fragment>
-      <CounterCell />
-      <CounterCell />
-      <CounterCell />
-    </React.Fragment>
-  );
+  // return (
+  //   <React.Fragment>
+  //     <CounterCell />
+  //     <CounterCell />
+  //     <CounterCell />
+  //   </React.Fragment>
+  // );
 };
 
 export default ItemList;

@@ -1,29 +1,29 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
 
-import Divider from '@material-ui/core/Divider';
-import {Container} from '@material-ui/core';
+import Divider from "@material-ui/core/Divider";
+import { Container } from "@material-ui/core";
 
-import InputBase from '@material-ui/core/InputBase';
+import InputBase from "@material-ui/core/InputBase";
 
-import {ActivityIndicator} from '../../components/activityindicator.component';
-import {AddError} from '../../components/adderror.component';
+import { ActivityIndicator } from "../../components/activityindicator.component";
+import { AddError } from "../../components/adderror.component";
 
-import {useDispatch, useSelector} from 'react-redux';
-import {addCounter} from '../../redux/actions/add-counter.actions';
+import { useDispatch, useSelector } from "react-redux";
+import { addCounter } from "../../redux/actions/add-counter.actions";
 
-import useStyles from './createitem.style';
+import useStyles from "./createitem.style";
 
 const CreateItem = () => {
   const classes = useStyles();
 
   const dispatch = useDispatch();
-  const countReducer = useSelector((state) => state.countReducer);
+  const productsReducer = useSelector((state) => state.productsReducer);
 
   const [counter, setCounter] = useState();
 
@@ -73,7 +73,7 @@ const CreateItem = () => {
               classes={{
                 input: classes.inputInput,
               }}
-              inputProps={{'aria-label': 'search'}}
+              inputProps={{ "aria-label": "search" }}
               onChange={onChange}
             />
           </div>
@@ -85,7 +85,7 @@ const CreateItem = () => {
           </Typography>
         </div>
         {/* Loading */}
-        {countReducer.loadingAddCounter === true ? (
+        {productsReducer.loadingAddCounter === true ? (
           <div className={classes.loader}>
             <ActivityIndicator />
           </div>
@@ -93,7 +93,7 @@ const CreateItem = () => {
           <p></p>
         )}
         {/* Error */}
-        {countReducer.errorAddCounter !== '' && <AddError />}
+        {productsReducer.errorAddCounter !== "" && <AddError />}
       </Container>
     </div>
   );

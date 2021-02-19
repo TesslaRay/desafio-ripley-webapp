@@ -1,10 +1,10 @@
-import {combineReducers} from 'redux';
-import countReducer from './main.reducer';
-import searchReducer from './search.reducer';
-import uiReducer from './ui.reducer';
+import { combineReducers } from "redux";
+import productsReducer from "./main.reducer";
+import searchReducer from "./search.reducer";
+import uiReducer from "./ui.reducer";
 
 const rootReducers = combineReducers({
-  countReducer,
+  productsReducer,
   uiReducer,
   searchReducer,
 });

@@ -5,8 +5,9 @@ import Container from "@material-ui/core/Container";
 import { useDispatch, useSelector } from "react-redux";
 
 import useStyles from "./style";
+import { selectItem } from "../../redux/actions/select-item.actions";
 
-const CounterCell = ({ item }) => {
+const CounterCell = ({ product }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const uiReducer = useSelector((state) => state.uiReducer);
@@ -21,23 +22,23 @@ const CounterCell = ({ item }) => {
 
   // let item = {};
 
-  // let isSelected = false;
-  // if (uiReducer.itemSelected.length) {
-  //   isSelected = uiReducer.itemSelected[0].title === item.title ? true : false;
-  // }
+  let isSelected = false;
+  if (uiReducer.itemSelected.length) {
+    isSelected = uiReducer.itemSelected[0].name === product.name ? true : false;
+  }
 
   return (
-    <Container className={classes.box}>
-      <img
-        className={classes.image}
-        src="https://home.ripley.cl/store/Attachment/WOP/D113/2000381938952/2000381938952_2.jpg"
-      />
-      <div className={classes.brand}>Apple </div>
-      <div className={classes.title}>
-        MACBOOK AIR RETINA / M1 / GPU 7C / 256GB SSD / 13.3
-      </div>
-      <div className={classes.price}>$1.199.990</div>
-      <div className={classes.discount}>$1.199.990</div>
+    <Container
+      className={isSelected ? classes.selected : classes.box}
+      onClick={() => {
+        dispatch(selectItem(product));
+      }}
+    >
+      <img className={classes.image} src={product.image} />
+      <div className={classes.brand}>{product.brand.toUpperCase()} </div>
+      <div className={classes.title}>{product.name}</div>
+      <div className={classes.price}>$ {product.price}</div>
+      <div className={classes.discount}>$ {product.price * 0.8}</div>
     </Container>
   );
 };

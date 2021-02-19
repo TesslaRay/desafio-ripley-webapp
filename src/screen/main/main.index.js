@@ -5,7 +5,7 @@ import { Dimmer } from "../../components/dimmer.component";
 import Divider from "@material-ui/core/Divider";
 
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCount } from "../../redux/actions/fetch-counts.actions";
+import { fetchProducts } from "../../redux/actions/fetch-products.actions";
 import { unselectItem } from "../../redux/actions/select-item.actions";
 import { desactivateSearch } from "../../redux/actions/search-counter.actions";
 
@@ -25,18 +25,18 @@ const Main = () => {
   const classes = useStyles();
 
   const dispatch = useDispatch();
-  const countReducer = useSelector((state) => state.countReducer);
+  const productsReducer = useSelector((state) => state.productsReducer);
   const uiReducer = useSelector((state) => state.uiReducer);
   const searchReducer = useSelector((state) => state.searchReducer);
 
   useEffect(() => {
-    dispatch(fetchCount());
+    dispatch(fetchProducts());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   let hasContent = false;
-  if (countReducer.counts[0] === undefined) {
+  if (productsReducer.products[0] === undefined) {
   } else {
-    hasContent = countReducer.counts[0].length ? true : false;
+    hasContent = productsReducer.products[0].length ? true : false;
   }
 
   const mainStateRender = () => {
@@ -48,7 +48,7 @@ const Main = () => {
         {/* {1 && <ActivityIndicator />} */}
 
         {/* No content */}
-        {/* {!hasContent && !countReducer.loading && (
+        {/* {!hasContent && !productsReducer.loading && (
           <div>
             <p className={classes.title}>No counters yet</p>
             <p className={classes.subtitle}>
@@ -62,12 +62,12 @@ const Main = () => {
         {/* {hasContent && (
           <div>
             <Dimmer />
-            {countReducer.errorDeleteCounter !== "" && <DeletetionError />}
+            {productsReducer.errorDeleteCounter !== "" && <DeletetionError />}
           </div>
         )} */}
 
         {/* Error  */}
-        {/* {countReducer.error !== "" && (
+        {/* {productsReducer.error !== "" && (
           <div>
             <p className={classes.title}>Couldn’t load the counters</p>
             <p className={classes.subtitle}>
@@ -86,6 +86,20 @@ const Main = () => {
       </div>
 
       <Box className={classes.body}>{mainStateRender()}</Box>
+
+      <div className={classes.bottom}>
+        <Divider className={classes.divider} />
+
+        <div className={classes.containerButtons}>
+          {uiReducer.itemSelected.length > 0 && (
+            <React.Fragment>
+              <DeleteButton />
+              {/* <ShareButton /> */}
+            </React.Fragment>
+          )}
+          <AddButton />
+        </div>
+      </div>
 
       {/* <div
           className={classes.searchBarContainer}

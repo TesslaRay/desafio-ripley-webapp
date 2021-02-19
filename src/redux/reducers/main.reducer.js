@@ -1,61 +1,61 @@
 import {
-  FETCH_COUNT_ERROR,
-  FETCH_COUNT_REQUEST,
-  FETCH_COUNT_SUCCESS,
-} from '../actions/fetch-counts.actions';
+  FETCH_PRODUCTS_REQUEST,
+  FETCH_PRODUCTS_SUCCESS,
+  FETCH_PRODUCTS_ERROR,
+} from "../actions/fetch-products.actions";
 
 import {
   INCREMENT_VALUE_ERROR,
   INCREMENT_VALUE_REQUEST,
   INCREMENT_VALUE_SUCCESS,
-} from '../actions/increment-value.actions';
+} from "../actions/increment-value.actions";
 
 import {
   DECREMENT_VALUE_ERROR,
   DECREMENT_VALUE_REQUEST,
   DECREMENT_VALUE_SUCCESS,
-} from '../actions/decrement-value.actions';
+} from "../actions/decrement-value.actions";
 
 import {
   ADD_COUNTER_ERROR,
   ADD_COUNTER_REQUEST,
   ADD_COUNTER_SUCCESS,
-} from '../actions/add-counter.actions';
+} from "../actions/add-counter.actions";
 import {
   DELETE_COUNTER_ERROR,
   DELETE_COUNTER_REQUEST,
   DELETE_COUNTER_SUCCESS,
-} from '../actions/delete-counter.actions';
+} from "../actions/delete-counter.actions";
 
 const initialState = {
   loading: false,
   loadingChangeValue: false,
   loadingAddCounter: false,
-  error: '',
-  errorChangeValue: '',
-  errorAddCounter: '',
-  errorDeleteCounter: '',
-  counts: [],
+  error: "",
+  errorChangeValue: "",
+  errorAddCounter: "",
+  errorDeleteCounter: "",
+  products: [],
 };
 
-const countReducer = (state = initialState, action) => {
+const productsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_COUNT_REQUEST:
+    case FETCH_PRODUCTS_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case FETCH_COUNT_SUCCESS: {
+    case FETCH_PRODUCTS_SUCCESS: {
       return {
         ...state,
         loading: false,
-        counts: action.payload[0] === '' ? [] : action.payload,
+        products: action.payload[0] === "" ? [] : action.payload,
       };
     }
-    case FETCH_COUNT_ERROR: {
+    case FETCH_PRODUCTS_ERROR: {
       return {
         ...state,
-        counts: [],
+        products: [],
         error: action.payload,
       };
     }
@@ -68,7 +68,7 @@ const countReducer = (state = initialState, action) => {
     }
 
     case INCREMENT_VALUE_SUCCESS: {
-      state.counts[0].forEach((element) => {
+      state.products[0].forEach((element) => {
         if (element.id === action.payload[0].id) {
           element.count = action.payload[0].count;
         }
@@ -77,7 +77,7 @@ const countReducer = (state = initialState, action) => {
       return {
         ...state,
         loadingChangeValue: false,
-        counts: state.counts,
+        products: state.products,
       };
     }
 
@@ -96,7 +96,7 @@ const countReducer = (state = initialState, action) => {
     }
 
     case DECREMENT_VALUE_SUCCESS: {
-      state.counts[0].forEach((element) => {
+      state.products[0].forEach((element) => {
         if (element.id === action.payload[0].id) {
           element.count = action.payload[0].count;
         }
@@ -105,7 +105,7 @@ const countReducer = (state = initialState, action) => {
       return {
         ...state,
         loadingChangeValue: false,
-        counts: state.counts,
+        products: state.products,
       };
     }
 
@@ -124,10 +124,10 @@ const countReducer = (state = initialState, action) => {
     }
 
     case ADD_COUNTER_SUCCESS: {
-      if (state.counts.length) {
-        state.counts[0].push(action.payload[0]);
+      if (state.products.length) {
+        state.products[0].push(action.payload[0]);
       } else {
-        state.counts.push(action.payload);
+        state.products.push(action.payload);
       }
       return {
         ...state,
@@ -151,13 +151,13 @@ const countReducer = (state = initialState, action) => {
 
     case DELETE_COUNTER_SUCCESS: {
       const newState = [];
-      newState[0] = state.counts[0].filter(
-        (item) => item.id !== action.payload[0],
+      newState[0] = state.products[0].filter(
+        (item) => item.id !== action.payload[0]
       );
 
       return {
         ...state,
-        counts: newState,
+        products: newState,
       };
     }
 
@@ -173,4 +173,4 @@ const countReducer = (state = initialState, action) => {
   }
 };
 
-export default countReducer;
+export default productsReducer;

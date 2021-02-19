@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { FOTTER } from "../../utils/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,8 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
   bottom: {
     position: "fixed",
-    bottom: theme.spacing(1),
+    bottom: 0,
     width: "100%",
+    backgroundColor: FOTTER,
   },
   searchBarContainer: {
     [theme.breakpoints.down("xs")]: {
