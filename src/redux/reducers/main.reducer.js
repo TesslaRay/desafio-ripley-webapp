@@ -150,9 +150,12 @@ const productsReducer = (state = initialState, action) => {
     }
 
     case DELETE_COUNTER_SUCCESS: {
+      state.products[0].forEach((e) =>
+        console.log(e.id != action.payload[0].deleteProduct)
+      );
       const newState = [];
       newState[0] = state.products[0].filter(
-        (item) => item.id !== action.payload[0]
+        (product) => product.id != action.payload[0].deleteProduct
       );
 
       return {

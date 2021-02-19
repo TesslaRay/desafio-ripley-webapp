@@ -1,9 +1,9 @@
-import axios from 'axios';
-import url from '../../config/env.js';
+import axios from "axios";
+import url from "../../config/env.js";
 
-export const DELETE_COUNTER_REQUEST = 'DELETE_COUNTER_REQUEST';
-export const DELETE_COUNTER_SUCCESS = 'DELETE_COUNTER_SUCCESS';
-export const DELETE_COUNTER_ERROR = 'DELETE_COUNTER_ERROR';
+export const DELETE_COUNTER_REQUEST = "DELETE_COUNTER_REQUEST";
+export const DELETE_COUNTER_SUCCESS = "DELETE_COUNTER_SUCCESS";
+export const DELETE_COUNTER_ERROR = "DELETE_COUNTER_ERROR";
 // --end-actions-types--
 
 // Actions
@@ -30,14 +30,12 @@ export const deleteCounterError = (error) => {
 export const deleteCounter = (id) => {
   return (dispatch) => {
     dispatch(deleteCounterRequest());
+    console.log(id);
     return axios
-      .delete(`${url}/api/v1/counter`, {
-        data: {id: id},
-        headers: {Authorization: '***'},
-      })
+      .delete(`${url}/product/${id}`)
       .then((response) => {
         dispatch(deleteCounterSuccess([response.data]));
       })
-      .catch((error) => dispatch(deleteCounterError('No connection')));
+      .catch((error) => dispatch(deleteCounterError("No connection")));
   };
 };
